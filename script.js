@@ -144,3 +144,7 @@ function consultarContacto(cor, nom, tel) {
         document.getElementById("bloque").innerHTML = "No Existe BBDD";
     }
 }
+function obtenerObjetos(modo) {
+    var tx = db.transaction(nombreBBDD, modo);
+    return tx.objectStore(nombreBBDD);
+}
