@@ -33,3 +33,17 @@ function crearBBDD() {
         tabla.createIndex('correo', 'correo', {unique: true});
     }
 }
+function listarBBDD() {
+    var cadena = "No Existe BBDD";
+    if(typeof db !== "undefined") {
+        var request = obtenerObjetos("readonly").count();
+        request.onsuccess = function() {
+            cadena = "Nombre de BBDD: " + db.name + ".<br/>";
+            cadena += "Versión de BBDD: " + db.version + ".<br/>";
+            cadena += "Contactos en BBDD: " + request.result + ".";
+            document.getElementById("bloque").innerHTML = cadena;
+        };
+    } else {
+        document.getElementById("bloque").innerHTML = cadena;
+    }
+}
