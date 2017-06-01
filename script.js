@@ -63,3 +63,21 @@ function borrarBBDD() {
         document.getElementById("bloque").innerHTML = "No Existe BBDD";
     }
 }
+function anadirContacto(nom, tel, cor) {
+    if(typeof db !== "undefined") {
+        var errorValidacion = validar(nom, tel, cor);
+        if(errorValidacion == ""){
+            var request = obtenerObjetos('readwrite').add({nombre: nom.value, telefono: tel.value, correo: cor.value}); //var obj = {nombre: nom.value, telefono: tel.value, correo: cor.value};
+            request.onsuccess = function (e) {
+                document.getElementById("bloque").innerHTML = "<i>" + nom.value + "</i> Insertado en BBDD";
+            };
+            request.onerror = function (e) {//document.getElementById("bloque").innerHTML = "Error de Inserción en BBDD: " + e;
+                document.getElementById("bloque").innerHTML = "Error - <i>" + cor.value + "</i> ya existe en BBDD";
+            };
+        } else {
+            document.getElementById("bloque").innerHTML = errorValidacion;
+        }
+    } else {
+        document.getElementById("bloque").innerHTML = "No Existe BBDD";
+    }
+}
