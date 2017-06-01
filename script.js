@@ -81,3 +81,24 @@ function anadirContacto(nom, tel, cor) {
         document.getElementById("bloque").innerHTML = "No Existe BBDD";
     }
 }
+function listarContactos() {
+    if(typeof db !== "undefined") {
+		var sw = false;
+        document.getElementById("bloque").innerHTML = "";
+        var contactos = obtenerObjetos('readonly');
+        contactos.openCursor().onsuccess = function(e) {
+			var cursor = e.target.result;   //Objeto que contiene cada una de las tuplas de la bbdd
+			if (cursor) {
+				sw = true;
+				document.getElementById("bloque").innerHTML += "Id: " + cursor.key + "<br/>";
+				document.getElementById("bloque").innerHTML += "Nombre: " + cursor.value.nombre + "<br/>";
+				document.getElementById("bloque").innerHTML += "Teléfono: " + cursor.value.telefono + "<br/>";
+				document.getElementById("bloque").innerHTML += "Correo: " + cursor.value.correo + "<br/><br/>";
+				cursor.continue();
+			} //else {	alert("No hay mas registros");	}
+		};
+        setTimeout(function(){ (sw) ? "" : document.getElementById("bloque").innerHTML = "No Existen Contactos en BBDD"; },100);    //Despues de 100 milisegundos se comprueba si hay errores
+    } else {
+        document.getElementById("bloque").innerHTML = "No Existe BBDD";
+    }
+}
