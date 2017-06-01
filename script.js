@@ -102,3 +102,45 @@ function listarContactos() {
         document.getElementById("bloque").innerHTML = "No Existe BBDD";
     }
 }
+function consultarContacto(cor, nom, tel) {
+    if(typeof db !== "undefined") {
+        if (cor.value != "") {
+            var sw = false;
+            var contactos = obtenerObjetos('readwrite');
+            contactos.openCursor().onsuccess = function(e) {
+                var cursor = e.target.result;   //Objeto que contiene cada una de las tuplas de la bbdd
+                if (cursor) {
+                    if (cursor.value.correo == cor.value) { //if (cursor.value.correo.indexOf(cor.value) != -1)
+                        if(typeof nom !== "undefined" && typeof tel !== "undefined" ) {         //modificacion
+                            sw = true;
+                            var errorValidacion = validar(nom, tel, cor);
+                            if(errorValidacion == ""){
+                                contactos.put({id: cursor.key, nombre: nom.value, telefono: tel.value, correo: cor.value}).onsuccess = function (e) {
+                                    document.getElementById("bloque").innerHTML = "Contacto Actualizado";
+                                };
+                            } else {
+                                document.getElementById("bloque").innerHTML = errorValidacion;
+                            }
+                        } else if(typeof nom !== "undefined" && typeof tel === "undefined") {   //borrado
+                            contactos.delete(cursor.key).onsuccess = function (evt) {
+                                document.getElementById("bloque").innerHTML = "Contacto Borrado";
+                                sw = true;
+                            };
+                        } else {                                                                //consultas
+                            document.getElementById("nombre").value = cursor.value.nombre;
+                            document.getElementById("telefono").value = cursor.value.telefono;
+                            document.getElementById("bloque").innerHTML = "Contacto encontrado con Id: " + cursor.key;
+                            sw = true;
+                        }
+                    }
+                    cursor.continue();
+                }
+            };
+            setTimeout(function(){ (sw) ? "" : document.getElementById("bloque").innerHTML = "No se encontró Correo en BBDD"; },200);
+        } else {
+            document.getElementById("bloque").innerHTML = "Se precisa un Correo para Consultar";
+        }
+    } else {
+        document.getElementById("bloque").innerHTML = "No Existe BBDD";
+    }
+}
