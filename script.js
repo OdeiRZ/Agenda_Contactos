@@ -15,3 +15,21 @@ window.onload = function(){
 		alert("Su Navegador no soporta indexedDB");
 	}
 };
+var nombreBBDD = "Agenda", db, ver = 1;
+function crearBBDD() {
+	var request = indexedDB.open(nombreBBDD, ver);
+    request.onsuccess = function(e) {
+        document.getElementById("bloque").innerHTML = "Apertura Correcta de BBDD";
+        db = this.result;
+    }
+    request.onerror = function(e) {
+        document.getElementById("bloque").innerHTML = "Error al Crear BBDD: " + e;
+    }
+    request.onupgradeneeded = function(e) {
+        document.getElementById("bloque").innerHTML = "Actualizando BBDD...";
+        var tabla = e.currentTarget.result.createObjectStore(nombreBBDD, {keyPath: 'id', autoIncrement: true});
+        tabla.createIndex('nombre', 'nombre', {unique: false});
+        tabla.createIndex('telefono', 'telefono', {unique: false});
+        tabla.createIndex('correo', 'correo', {unique: true});
+    }
+}
