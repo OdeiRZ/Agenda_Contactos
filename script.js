@@ -148,3 +148,12 @@ function obtenerObjetos(modo) {
     var tx = db.transaction(nombreBBDD, modo);
     return tx.objectStore(nombreBBDD);
 }
+function validar(nom, tel, cor) {
+    var expresiones = [	["nombre",	 /^[A-ZÁÉÍÓÚÑ][A-ZÑa-zñÁÉÍÓÚáéíóú ]{2,}$/],
+                        ["telefono", /^[0-9]{9}$/],
+                        ["correo",	 /^[\w-\.]{3,}@([\w-]{3,}\.)[\w-]{2,4}$/] ];
+    var error = (expresiones[0][1].test(nom.value) == false) ? "El Nombre no tiene el formato Correcto.<br/><br/>" : "" ;
+    error    += (expresiones[1][1].test(tel.value) == false) ? "El Teléfono no tiene el formato Correcto.<br/><br/>" : "" ;
+    error    += (expresiones[2][1].test(cor.value) == false) ? "El Correo no tiene el formato Correcto." : "" ;
+    return error;
+}
