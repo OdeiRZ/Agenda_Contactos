@@ -2,8 +2,36 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
+		<title>Agenda - IndexedDB</title>
 	</head>
 	<body>
+		<div class="login">
+			<h1><i class="fa fa-book"></i> &nbsp; AGENDA DE CONTACTOS &nbsp; <i class="fa fa-book"></i></h1><!--<i class="fa fa-book fa-2x"></i> -->
+			<form class="form" method="post" action="index.html">
+				<p class="field">
+					<input type="text" placeholder="Nombre" id="nombre" required/>
+					<i class="fa fa-user"></i>
+					<input class="enviar especial" type="button" id="crearBBDD" value="&#xf0fe; &nbsp; Abrir BBDD &nbsp; ">
+				</p>
+				<p class="field">
+					<input type="text" placeholder="Teléfono" id="telefono" required/>
+					<i class="fa fa-phone"></i>
+					<input class="enviar especial" type="button" id="listarBBDD" value="&#xf192; &nbsp; Listar BBDD &nbsp; ">
+				</p>
+				<p class="field">
+					<input type="text" placeholder="E-mail (*)" id="email" required/>
+					<i class="fa fa-envelope"></i>
+					<input class="enviar especial" type="button" id="borrarBBDD" value="&#xf146; &nbsp; Borrar BBDD">
+				</p>
+				<p class="submit"><input class="enviar" type="button" id="anadirContacto" value="Añadir Contacto"></p>
+				<p class="submit"><input class="enviar" type="button" id="listarContactos" value="Listar Contactos"></p>
+				<p class="submit"><input class="enviar" type="button" id="consultarContacto" value="Consultar Contacto"></p>
+				<p class="submit"><input class="enviar" type="button" id="modificarContacto" value="Modificar Contacto"></p>
+				<p class="submit"><input class="enviar" type="button" id="borrarContacto" value="Borrar Contacto"></p>
+			</form>
+		</div>
+		<div class="login">
+			<p class="resultado" id="bloque">Pulsa Cualquier Botón para Interactuar con la Aplicación.</p>
+		</div>
 	</body>
 </html>
