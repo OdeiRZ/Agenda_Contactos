@@ -47,3 +47,19 @@ function listarBBDD() {
         document.getElementById("bloque").innerHTML = cadena;
     }
 }
+function borrarBBDD() {
+    if(typeof db !== "undefined") {
+        db.close();
+        var request = indexedDB.deleteDatabase(nombreBBDD);
+        request.onsuccess = function(e) {
+            document.getElementById("bloque").innerHTML = "Borrado Correcto de BBDD";
+            alert("Se procederá a recargar la página");
+            location.reload(true);
+        }
+        request.onerror = function(e) {
+            document.getElementById("bloque").innerHTML = "Error al Borrar BBDD: " + e;
+        }
+    } else {
+        document.getElementById("bloque").innerHTML = "No Existe BBDD";
+    }
+}
