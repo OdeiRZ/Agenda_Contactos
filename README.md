@@ -1,16 +1,16 @@
-Agenda Contactos 0.9
+Agenda Contactos 0.91
 ================================
 
-Aplicación web para la gestión de una BBDD de contactos en local (IndexedDB) desarrollada en JavaScript y HTML.
+AplicaciÃ³n web para la gestiÃ³n de una BBDD de contactos en local (IndexedDB) desarrollada en JavaScript y HTML.
 Permite gestionar diferentes contactos almacenados localmente en el propio navegador, todo ello de manera
-fácil y cómoda a través de una interfaz intuitiva y atractiva.
+fÃ¡cil y cÃ³moda a travÃ©s de una interfaz intuitiva y atractiva.
 
 Desde el programa podremos elegir entre diferentes opciones, desde los que gestionaremos las funciones 
-propias de la aplicación. El sistema permite trabajar con nombres, teléfonos y correos electrónicos,
-facilitando su creación, listado, consulta, modificación, eliminación y validación, posibilitando así 
+propias de la aplicaciÃ³n. El sistema permite trabajar con nombres, telÃ©fonos y correos electrÃ³nicos,
+facilitando su creaciÃ³n, listado, consulta, modificaciÃ³n, eliminaciÃ³n y validaciÃ³n, posibilitando asÃ­ 
 todas las tareas propias de un mantenimiento completo de una agenda personal de manera local y sencilla.
 
 ## Licencia
-Esta aplicación se ofrece bajo licencia [AGPL versión 3].
+Esta aplicaciÃ³n se ofrece bajo licencia [GPL versiÃ³n 3].
 
-[AGPL versión 3]: http://www.gnu.org/licenses/agpl.html
+[GPL versiÃ³n 3]: https://www.gnu.org/licenses/gpl-3.0.en.html
