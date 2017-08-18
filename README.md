@@ -10,12 +10,16 @@ propias de la aplicación. El sistema permite trabajar con nombres, teléfonos y
 facilitando su creación, listado, consulta, modificación, eliminación y validación, posibilitando así 
 todas las tareas propias de un mantenimiento completo de una agenda personal de manera local y sencilla.
 
+Para cualquier referencia relacionada con el sitio, podemos ver la aplicación desplegada 
+visitando el siguiente [enlace].
+
 ## Requisitos
 - Navegador Web [Chrome], [Firefox], [Opera], [Microsoft Edge], etc..
 
 ## Licencia
 Esta aplicación se ofrece bajo licencia [GPL versión 3].
 
+[enlace]: https://odeirz.github.io/Agenda_Contactos/public/
 [Chrome]: https://www.google.es/chrome/browser/desktop/index.html
 [Firefox]: https://www.mozilla.org/es-ES/firefox/new/
 [Opera]: http://www.opera.com/es
