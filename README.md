@@ -8,9 +8,9 @@ fácil y cómoda a través de una interfaz intuitiva y atractiva.
 Desde el programa podremos elegir entre diferentes opciones, desde los que gestionaremos las funciones 
 propias de la aplicación. El sistema permite trabajar con nombres, teléfonos y correos electrónicos,
 facilitando su creación, listado, consulta, modificación, eliminación y validación, posibilitando así 
-todas las tareas propias de un mantenimiento completo de una agenda personal de manera local y sencilla.
+todas las tareas propias de un mantenimiento completo de una agenda personal de manera sencilla.
 
-Para cualquier referencia relacionada con el sitio, podemos ver la aplicación desplegada 
+Para cualquier referencia relacionada con el programa, podemos ver la aplicación desplegada 
 visitando el siguiente [enlace].
 
 ## Requisitos
