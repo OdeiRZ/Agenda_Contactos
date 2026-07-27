@@ -15,6 +15,11 @@ window.onload = function(){
 		alert("Su Navegador no soporta indexedDB");
 	}
 };
+function escapeHtml(str) {                    //Convierte el texto a entidades HTML para poder interpolarlo de forma segura en innerHTML
+	var div = document.createElement("div");
+	div.textContent = str;
+	return div.innerHTML;
+}
 var nombreBBDD = "Agenda", db, ver = 1;
 function crearBBDD() {
 	var request = indexedDB.open(nombreBBDD, ver);
@@ -69,10 +74,10 @@ function anadirContacto(nom, tel, cor) {
         if(errorValidacion == ""){
             var request = obtenerObjetos('readwrite').add({nombre: nom.value, telefono: tel.value, correo: cor.value}); //var obj = {nombre: nom.value, telefono: tel.value, correo: cor.value};
             request.onsuccess = function (e) {
-                document.getElementById("bloque").innerHTML = "<i>" + nom.value + "</i> Insertado en BBDD";
+                document.getElementById("bloque").innerHTML = "<i>" + escapeHtml(nom.value) + "</i> Insertado en BBDD";
             };
             request.onerror = function (e) {//document.getElementById("bloque").innerHTML = "Error de Inserción en BBDD: " + e;
-                document.getElementById("bloque").innerHTML = "Error - <i>" + cor.value + "</i> ya existe en BBDD";
+                document.getElementById("bloque").innerHTML = "Error - <i>" + escapeHtml(cor.value) + "</i> ya existe en BBDD";
             };
         } else {
             document.getElementById("bloque").innerHTML = errorValidacion;
@@ -91,9 +96,9 @@ function listarContactos() {
 			if (cursor) {
 				sw = true;
 				document.getElementById("bloque").innerHTML += "Id: " + cursor.key + "<br/>";
-				document.getElementById("bloque").innerHTML += "Nombre: " + cursor.value.nombre + "<br/>";
-				document.getElementById("bloque").innerHTML += "Teléfono: " + cursor.value.telefono + "<br/>";
-				document.getElementById("bloque").innerHTML += "Correo: " + cursor.value.correo + "<br/><br/>";
+				document.getElementById("bloque").innerHTML += "Nombre: " + escapeHtml(cursor.value.nombre) + "<br/>";
+				document.getElementById("bloque").innerHTML += "Teléfono: " + escapeHtml(cursor.value.telefono) + "<br/>";
+				document.getElementById("bloque").innerHTML += "Correo: " + escapeHtml(cursor.value.correo) + "<br/><br/>";
 				cursor.continue();
 			} //else {	alert("No hay mas registros");	}
 		};
