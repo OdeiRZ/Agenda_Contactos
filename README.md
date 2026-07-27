@@ -1,27 +1,33 @@
-Agenda Contactos 0.91
-================================
+# Agenda Contactos
 
-Aplicación web para la gestión de una BBDD de contactos en local (IndexedDB) desarrollada en JavaScript y HTML.
-Permite gestionar diferentes contactos almacenados localmente en el propio navegador, todo ello de manera
-fácil y cómoda a través de una interfaz intuitiva y atractiva.
+Agenda de contactos que se ejecuta enteramente en el navegador, guardando los datos en local mediante IndexedDB.
 
-Desde el programa podremos elegir entre diferentes opciones, desde los que gestionaremos las funciones 
-propias de la aplicación. El sistema permite trabajar con nombres, teléfonos y correos electrónicos,
-facilitando su creación, listado, consulta, modificación, eliminación y validación, posibilitando así 
-todas las tareas propias de un mantenimiento completo de una agenda personal de manera sencilla.
+## Características
 
-Para cualquier referencia relacionada con el programa, podemos ver la aplicación desplegada 
-visitando el siguiente [enlace].
+- Creación, listado y borrado de la base de datos IndexedDB (`crearBBDD`, `listarBBDD`, `borrarBBDD`).
+- Alta de contactos con nombre, teléfono y correo electrónico.
+- Listado de todos los contactos almacenados, recorriendo la base de datos con un cursor.
+- Consulta de un contacto por correo electrónico (usado como clave única).
+- Modificación y borrado de un contacto existente, localizándolo también por correo.
+- Validación de los campos mediante expresiones regulares (nombre, teléfono de 9 dígitos y formato de email) antes de guardar o actualizar.
 
-## Requisitos
-- Navegador Web [Chrome], [Firefox], [Opera], [Microsoft Edge], etc..
+## Tecnologías
+
+- HTML5
+- CSS3 (con iconos de Font Awesome)
+- JavaScript vanilla (sin frameworks)
+- IndexedDB (API nativa del navegador para almacenamiento local)
+
+## Instalación / Cómo ejecutarlo
+
+No requiere backend ni instalación de dependencias:
+
+1. Clona el repositorio.
+2. Abre `public/index.html` en un navegador con soporte para IndexedDB (Chrome, Firefox, Edge, etc.).
+3. Pulsa "Abrir BBDD" para inicializar la base de datos antes de usar el resto de opciones.
+
+Ejercicio académico que practica el uso de la API IndexedDB (transacciones, cursores, índices) y la validación de formularios con expresiones regulares en JavaScript.
 
 ## Licencia
-Esta aplicación se ofrece bajo licencia [GPL versión 3].
 
-[enlace]: https://odeirz.github.io/Agenda_Contactos/public/
-[Chrome]: https://www.google.es/chrome/browser/desktop/index.html
-[Firefox]: https://www.mozilla.org/es-ES/firefox/new/
-[Opera]: http://www.opera.com/es
-[Microsoft Edge]: https://www.microsoft.com/es-es/windows/microsoft-edge
-[GPL versión 3]: https://www.gnu.org/licenses/gpl-3.0.en.html
+GPL versión 3 (ver archivo [LICENSE](LICENSE)).
