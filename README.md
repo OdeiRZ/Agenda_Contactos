@@ -28,6 +28,10 @@ No requiere backend ni instalación de dependencias:
 
 Ejercicio académico que practica el uso de la API IndexedDB (transacciones, cursores, índices) y la validación de formularios con expresiones regulares en JavaScript.
 
+## Seguridad
+
+El nombre, teléfono y email del contacto se escapan antes de insertarse en el DOM (`innerHTML`). Antes, la protección frente a XSS dependía únicamente de que la expresión regular de validación rechazara los símbolos `<`/`>`, una coincidencia frágil y no una garantía real.
+
 ## Licencia
 
 GPL versión 3 (ver archivo [LICENSE](LICENSE)).
